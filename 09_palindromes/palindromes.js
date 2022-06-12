@@ -1,23 +1,14 @@
 const palindromes = function (str) {
     const strArray = new Array();
-    const lowerStr = str.toLowerCase();
-    for (let pos = 0; pos < lowerStr.length; pos++) {
-        if (lowerStr.charCodeAt(pos) >= 97 && lowerStr.charCodeAt(pos) <= 122) {
-            strArray.push(lowerStr[pos]);
+    for (let pos = 0; pos < str.length; pos++) {
+        if (str.toLowerCase().charCodeAt(pos) >= 97 && str.toLowerCase().charCodeAt(pos) <= 122) {
+            strArray.push(str[pos].toLowerCase());
         }
     }
-    const reversedArray = [...strArray];
-    reversedArray.reverse();
-    for (let i = 0; i < reversedArray.length; i++) {
-        if (reversedArray[i] !== strArray[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    const reversedString = [...strArray].reverse().join("");
+    const originalString = strArray.join("");
+    return (reversedString === originalString);
 };
-
-// console.log(palindromes('Rats live on no evil star.'));
 
 // Do not edit below this line
 module.exports = palindromes;
